@@ -30,7 +30,7 @@ import zid_project2_etl as etl
 import zid_project2_characteristics as cha
 import zid_project2_portfolio as pf
 import pandas as pd
-import numpy as 
+import numpy as np
 
 
 # -----------------------------------------------------------------------------------------------
