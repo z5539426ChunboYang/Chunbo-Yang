@@ -448,7 +448,11 @@ print(t_stat(EW_LS_pf_df))
 # .......
 #
 # Please replace the """?""" with your team's project 2 git log:
-git_log = """?"""
+git_log = """a8120bb%09 z5539426 ChunboYang%9 Thu Aug 1 14:18:58 2024 +1000%9Update zid_project2_elt
+dd07323%09 z5539426 ChunboYang%9 Thu Aug 1 14:18:27 2024 +1000%9 Add files via upload
+d50afd2%09 z5533225 YunboXie%09 Thu Aug 1 20:00:50 2024 +1000%09Update zid_project2_main.py
+c908bb8%09 z5533225 YunboXie%09 Thu Aug 1 20:00:35 2024 +1000%09Update zid_project2_main.py
+"""
 
 # ----------------------------------------------------------------------------
 # Part 11: project 2 mini-presentation
