@@ -241,9 +241,7 @@ def merge_tables(ret, df_cha, cha_name):
     """
     # <COMPLETE THIS PART>
     monthly_returns = ret['Monthly'].copy()
-
     df_cha_shifted = df_cha.shift(periods=1)
-
     merged_df = pd.merge(monthly_returns, df_cha_shifted, left_index=True, right_index=True, how='left')
     return merged_df
 
