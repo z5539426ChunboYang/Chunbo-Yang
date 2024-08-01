@@ -296,9 +296,7 @@ def cha_main(ret, cha_name, ret_freq_use: list):
     """
     # <COMPLETE THIS PART>
     vol_input_sanity_check(ret, cha_name, ret_freq_use)
-
     df_cha = vol_cal(ret, cha_name, ret_freq_use)
-
     df_merged = merge_tables(ret, df_cha, cha_name)
     return df_merged
 
