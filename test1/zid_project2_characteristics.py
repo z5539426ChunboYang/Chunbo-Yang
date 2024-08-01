@@ -161,15 +161,10 @@ def vol_cal(ret, cha_name, ret_freq_use: list):
     # <COMPLETE THIS PART>
     if 'Daily' not in ret_freq_use:
         raise ValueError("Total volatility calculation requires 'Daily' returns.")
-
     daily_ret_df = ret['Daily'].copy()
-
     daily_ret_df.index = daily_ret_df.index.to_period('M')
-
     vol_df = daily_ret_df.groupby(level=0).apply(lambda x: x.std(ddof=0) if len(x) >= 18 else None)
-
     vol_df.columns = [f"{col}_{cha_name}" for col in vol_df.columns]
-
     vol_df = vol_df.dropna(how='all')
     return vol_df
 
