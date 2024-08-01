@@ -161,10 +161,15 @@ def vol_cal(ret, cha_name, ret_freq_use: list):
     # <COMPLETE THIS PART>
     if 'Daily' not in ret_freq_use:
         raise ValueError("Total volatility calculation requires 'Daily' returns.")
+
     daily_ret_df = ret['Daily'].copy()
+
     daily_ret_df.index = daily_ret_df.index.to_period('M')
+
     vol_df = daily_ret_df.groupby(level=0).apply(lambda x: x.std(ddof=0) if len(x) >= 18 else None)
+
     vol_df.columns = [f"{col}_{cha_name}" for col in vol_df.columns]
+
     vol_df = vol_df.dropna(how='all')
     return vol_df
 
@@ -241,7 +246,9 @@ def merge_tables(ret, df_cha, cha_name):
     """
     # <COMPLETE THIS PART>
     monthly_returns = ret['Monthly'].copy()
+
     df_cha_shifted = df_cha.shift(periods=1)
+
     merged_df = pd.merge(monthly_returns, df_cha_shifted, left_index=True, right_index=True, how='left')
     return merged_df
 
@@ -294,7 +301,9 @@ def cha_main(ret, cha_name, ret_freq_use: list):
     """
     # <COMPLETE THIS PART>
     vol_input_sanity_check(ret, cha_name, ret_freq_use)
+
     df_cha = vol_cal(ret, cha_name, ret_freq_use)
+
     df_merged = merge_tables(ret, df_cha, cha_name)
     return df_merged
 
